@@ -18,8 +18,8 @@ if __name__ == '__main__':
 	conf = {
 				'global': {
 					'server.socket_host': '0.0.0.0',
-					'server.socket_port': 8080,
-					'server.threaed_pool': 10
+					'server.socket_port': 80,
+					'server.threaed_pool': 50
 				},
 
 				'/': {
