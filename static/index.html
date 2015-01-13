@@ -2,23 +2,31 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Ember Starter Kit</title>
+  <title>OpenBook Platform</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <script type="text/x-handlebars">
-    <h2>Welcome to Ember.js</h2>
-
-    {{outlet}}
-  </script>
+    <h2>OpenBook Platform</h2>
 
   <script type="text/x-handlebars" id="index">
-    <ul>
-    {{#each item in model}}
-      <li>{{item}}</li>
-    {{/each}}
-    </ul>
+	<div>
+		<label>Book:</label>
+		{{input type="text" value=book placeholder="Enter a title here."}}
+		<hr />
+		<h3>Results for {{book}}:</h3>
+		<ul>
+		{{#each item in model}}
+			<script>
+			var book = Em.Handlebars.compile('{{book}}');
+			var item = Em.Handlebars.compile('{{item}}');
+			var compare = Em.ifEqual(book, item);
+			if (compare == true) {
+				Em.Handlebars.compile('{{#if book}}<li>{{item}}</li>{{/if}}');
+			};
+		{{/each}}
+		</ul>
+	</div>    
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
